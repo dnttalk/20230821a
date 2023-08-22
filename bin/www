@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var app = require('../app');
-var debug = require('debug')('NGS_arm:server');
+var debug = require('debug')('nodejs-03:server');
 var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
@@ -51,4 +51,20 @@ function onListening() {
         'port ' + addr.port;
     debug('Listening on ' + bind);
     console.log('Server running at http://localhost:3000/');
+    const { platform } = require('os');
+    const { exec } = require('child_process');
+
+    const WINDOWS_PLATFORM = 'win32';
+    const MAC_PLATFORM = 'darwin';
+
+    const osPlatform = platform();
+    let url = 'http://localhost:3000'
+    let command;
+
+    if (osPlatform === WINDOWS_PLATFORM) {
+        command = `start chrome ${url} --kiosk --incognito --disable-pinch --overscroll-history-navigation=0`;
+    }
+    console.log(`executing command: ${command}`);
+
+    exec(command);
 }

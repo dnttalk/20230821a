@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const port = 3000;
 const index = require('./routes/index');
 const app = express();
+
 app.use(cors());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs')
