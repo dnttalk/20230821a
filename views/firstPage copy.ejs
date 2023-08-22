@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>第一頁</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/firstpage.css" />
+    <script>
+        let user = null;
+        <% if (locals.u) { %>
+            user = '<%= u %>';
+        <% } %>
+    </script>
+</head>
+
+<body>
+    <div class="container text-center firstpage-layout">
+        <div class="row">
+            <a class="midBtn" href="/second?id=leukemia"><button id="btn-la" type="button"
+                    class="fbtn btn btn-primary border-5">Leukemia</button></a>
+        </div>
+        <div class="row">
+            <a class="midBtn" href="/second?id=mpn"><button id="btn-mpn" type="button"
+                    class="fbtn btn btn-primary border-5">MPN</button></a>
+        </div>
+        <div class="row">
+            <a class="midBtn" href="/second?id=tp53"><button id="btn-tp53" type="button"
+                    class="fbtn btn btn-primary border-5">TP53</button></a>
+        </div>
+    </div>
+
+    <div class="siderbar">
+        <div class="row">
+            <a href="/login"><button id="btn-login" type="button"
+                    class="fbtn btn btn-primary border-5">Login</button></a>
+        </div>
+        <!-- PCR button -->
+        <div class="row">
+            <button id="pcrBtn" class="fbtn btn btn-primary border-5">PCR unload</button>
+        </div>
+        <div class="row">
+            <a href="/history"><button id="btn-history" type="button"
+                    class="fbtn btn btn-primary border-5">History</button></a>
+        </div>
+        <div class="row">
+            <button id="btn-calibration" type="button" class="fbtn btn btn-primary border-5">Calibration</button>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/firstpage.js"></script>
+    <script src="/assets/js/PCR_open.js"></script>
+    <script src="/assets/js/PCR_close.js"></script>
+</body>
+
+</html>
