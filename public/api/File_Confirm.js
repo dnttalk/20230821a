@@ -11,17 +11,17 @@ const D601_read = '500000FFFF03000C00100001040000590200A80100';
 
 const a = Buffer.from(M5001, 'hex');
 const a_off = Buffer.from(M5001_off, 'hex');
-
+const a_read = Buffer.from(M5001_read, 'hex');
 
 const client = net.connect(PORT, HOST, () => {
   client.write(Buffer.from(M700_on, 'hex'));
   console.log('Command sent!');
   buffer = Buffer.from(D600_read, 'hex');
-  setTimeout(()=>{ }, 1000);
+  setTimeout(() => { }, 1000);
   client.write(buffer);
   console.log("data1");
   buffer = Buffer.from(D601_read, 'hex');
-  setTimeout(()=>{ client.write(buffer);}, 1000);
+  setTimeout(() => { client.write(buffer); }, 1000);
   console.log("data2");
   //client.write(a_off);
 });
@@ -34,7 +34,7 @@ client.on('data', (data) => {
   // 在这里处理接收到的数据
   // ...
 });
-client.on('error', (error) =>{
+client.on('error', (error) => {
   console.log(error);
 })
 
@@ -47,7 +47,7 @@ client.on('close', () => {
   console.log('Closing connection');
 })
 
-setTimeout(function(){
+setTimeout(function () {
   console.log("Executed after 5 second");
   client.end();
 }, 5000);

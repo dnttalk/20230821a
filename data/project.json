@@ -1,0 +1,16 @@
+{
+    "conditions": [
+        {
+            "id": "leukemia",
+            "label": "Leukemia"
+        },
+        {
+            "id": "mpn",
+            "label": "MPN"
+        },
+        {
+            "id": "tp53",
+            "label": "TP53"
+        }
+    ]
+}

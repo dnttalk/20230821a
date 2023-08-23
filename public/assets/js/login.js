@@ -1,3 +1,4 @@
+
 var user = document.querySelector("#user")
 var pwd = document.querySelector('#pwd')
 var login = document.querySelector('#login')
@@ -46,11 +47,6 @@ let registerEvent = function () {
                 processData: false,
                 success: function (data) {
                     alert(data.message)
-                    // if (data.status == 2) {
-                    //     window.location.href = '/';
-                    // } else {
-                    //     $('#popMessage').text(data.message)
-                    // }
                 }, error: function (data) {
                     $('#popMessage').text('伺服器發生錯誤, 請稍後在試')
                 }
@@ -87,3 +83,49 @@ document.addEventListener("DOMContentLoaded", function () {
         loginForm.style.display = "block";
     });
 });
+
+let Keyboard = window.SimpleKeyboard.default;
+
+let keyboard = new Keyboard({
+    onChange: input => onChange(input),
+    onKeyPress: button => onKeyPress(button)
+});
+
+/**
+ * 當直接更改輸入時，更新 simple-keyboard
+ */
+document.querySelector(".form-control.form-control-lg").addEventListener("click", event => {
+    if (!keyboard) {
+        // 初始化虛擬鍵盤
+        keyboard = new Keyboard('.keyboard-container', {
+            // 設置虛擬鍵盤的其他選項
+        });
+    }
+    // 顯示虛擬鍵盤
+    keyboard.open();
+});
+document.querySelector(".form-control.form-control-lg").addEventListener("input", event => {
+    keyboard.setInput(event.target.value);
+});
+
+console.log(keyboard);
+
+function onChange(input) {
+    document.querySelector(".form-control.form-control-lg").value = input;
+    console.log("輸入已變更", input);
+}
+
+function onKeyPress(button) {
+    console.log("按鈕被按下", button);
+
+    if (button === "{shift}" || button === "{lock}") handleShift();
+}
+
+function handleShift() {
+    let currentLayout = keyboard.options.layoutName;
+    let shiftToggle = currentLayout === "default" ? "shift" : "default";
+
+    keyboard.setOptions({
+        layoutName: shiftToggle
+    });
+}

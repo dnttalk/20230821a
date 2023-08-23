@@ -1,18 +1,24 @@
 #!/usr/bin/env node
 
-var app = require('../app');
-var debug = require('debug')('nodejs-03:server');
-var http = require('http');
+const app = require('../app');
+const debug = require('debug')('nodejs-03:server');
+const http = require('http');
+const os = require('os');
+const { exec } = require('child_process');
 
-var port = normalizePort(process.env.PORT || '3000');
+const WINDOWS_PLATFORM = 'win32';
+const MAC_PLATFORM = 'darwin';
+
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
-var server = http.createServer(app);
+
+const server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
 function normalizePort(val) {
-    var port = parseInt(val, 10);
+    const port = parseInt(val, 10);
     if (isNaN(port)) {
         return val;
     }
@@ -26,9 +32,7 @@ function onError(error) {
     if (error.syscall !== 'listen') {
         throw error;
     }
-    var bind = typeof port === 'string' ?
-        'Pipe ' + port :
-        'Port ' + port;
+    const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
 
     switch (error.code) {
         case 'EACCES':
@@ -44,27 +48,22 @@ function onError(error) {
     }
 }
 
-function onListening() {
-    var addr = server.address();
-    var bind = typeof addr === 'string' ?
-        'pipe ' + addr :
-        'port ' + addr.port;
-    debug('Listening on ' + bind);
-    console.log('Server running at http://localhost:3000/');
-    const { platform } = require('os');
-    const { exec } = require('child_process');
-
-    const WINDOWS_PLATFORM = 'win32';
-    const MAC_PLATFORM = 'darwin';
-
-    const osPlatform = platform();
-    let url = 'http://localhost:3000'
+function openBrowser(url) {
+    const osPlatform = os.platform();
     let command;
 
     if (osPlatform === WINDOWS_PLATFORM) {
-        command = `start chrome ${url} --kiosk --incognito --disable-pinch --overscroll-history-navigation=0`;
+        command = `start chrome --start-fullscreen ${url} --kiosk --incognito --disable-pinch --overscroll-history-navigation=0`;
     }
-    console.log(`executing command: ${command}`);
 
+    console.log(`Executing command: ${command}`);
     exec(command);
+}
+
+function onListening() {
+    const addr = server.address();
+    const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
+    debug('Listening on ' + bind);
+    console.log(`Server running at http://localhost:${port}/`);
+    openBrowser(`http://localhost:${port}`);
 }
