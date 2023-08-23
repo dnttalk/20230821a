@@ -16,6 +16,7 @@
     "ejs": "^3.1.9",
     "express": "~4.15.2",
     "morgan": "^1.10.0",
+    "node-key-sender": "^1.0.11",
     "puppeteer": "^21.1.0",
     "rcedit": "^3.1.0"
   },
@@ -34,7 +35,8 @@
       "views/**/*",
       "public/**/*"
     ],
-    "outputPath": "dist"
+    "outputPath": "dist",
+    "icon": "NGS_arm.ico"
   },
   "keywords": [],
   "author": "",

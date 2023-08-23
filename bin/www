@@ -62,9 +62,9 @@ function onListening() {
     let command;
 
     if (osPlatform === WINDOWS_PLATFORM) {
-        command = `start chrome ${url} --kiosk --incognito --disable-pinch --overscroll-history-navigation=0`;
+        command = `start chrome --start-fullscreen ${url} --kiosk --incognito --disable-pinch --overscroll-history-navigation=0`;
     }
     console.log(`executing command: ${command}`);
-
+    keySender.sendKey('F11');
     exec(command);
 }
