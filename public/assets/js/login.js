@@ -166,5 +166,12 @@ function handleShift() {
     });
 }
 document.getElementById("closePage").addEventListener("click", function () {
-    window.close(); // Close the current tab or window
+    // Check if the window was opened by a script
+    if (window.opener) {
+        window.close(); // Close the current window or tab
+    } else {
+        alert("This window was not opened by a script and cannot be closed.");
+        document.getElementById("content").classList.toggle("minimized");
+    }
+
 });
