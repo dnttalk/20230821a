@@ -93,9 +93,7 @@ let keyboard = new Keyboard({
     onKeyPress: button => onKeyPress(button)
 });
 
-/**
- * Update simple-keyboard when input is changed directly
- */
+
 $(".input").click(function () {
     curryInput = '#' + $(this).attr('id')
     document.querySelector(curryInput).addEventListener("input", event => {
@@ -132,9 +130,7 @@ function isInputElement(element, inputElements) {
     return false;
 }
 function onChange(input) {
-    // document.querySelector(curryInput).value = input;
-    // console.log(input)
-    // console.log("Input changed", input);
+
 }
 
 function onKeyPress(button) {
@@ -149,9 +145,6 @@ function onKeyPress(button) {
     }
     console.log("Button pressed", button);
 
-    /**
-     * If you want to handle the shift and caps lock buttons
-     */
     if (button === "{shift}" || button === "{lock}") handleShift();
 }
 
@@ -166,9 +159,9 @@ function handleShift() {
     });
 }
 document.getElementById("closePage").addEventListener("click", function () {
-    // Check if the window was opened by a script
+
     if (window.opener) {
-        window.close(); // Close the current window or tab
+        window.close();
     } else {
         alert("This window was not opened by a script and cannot be closed.");
         document.getElementById("content").classList.toggle("minimized");
