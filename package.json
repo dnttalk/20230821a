@@ -19,7 +19,7 @@
     "node-key-sender": "^1.0.11",
     "puppeteer": "^21.1.0",
     "rcedit": "^3.1.0",
-    "simple-keyboard": "^3.6.42"
+    "simple-keyboard": "^3.7.2"
   },
   "devDependencies": {
     "electron-builder": "^24.6.3",
