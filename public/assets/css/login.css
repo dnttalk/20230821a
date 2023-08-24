@@ -30,8 +30,6 @@ a {
     padding: 1.1rem 1rem;
     font-size: 1.25rem;
     border-radius: inherit !important;
-    /* border-left-color: rgb(9, 127, 245);
-    border-left-style: solid 1px; */
     border-color: rgba(255, 255, 255, 0);
     margin: 0 auto;
     box-shadow: -6px 0 0px -1.4px rgb(9, 127, 245);
@@ -62,4 +60,8 @@ a {
 }
 .simple-keyboard {
     max-width: 850px;
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }

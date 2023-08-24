@@ -84,40 +84,74 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+let curryInput = '#user'
 let Keyboard = window.SimpleKeyboard.default;
 
 let keyboard = new Keyboard({
+    baseClass: 'custom-keyboard',
     onChange: input => onChange(input),
     onKeyPress: button => onKeyPress(button)
 });
 
 /**
- * 當直接更改輸入時，更新 simple-keyboard
+ * Update simple-keyboard when input is changed directly
  */
-document.querySelector(".form-control.form-control-lg").addEventListener("click", event => {
-    if (!keyboard) {
-        // 初始化虛擬鍵盤
-        keyboard = new Keyboard('.keyboard-container', {
-            // 設置虛擬鍵盤的其他選項
-        });
+$(".input").click(function () {
+    curryInput = '#' + $(this).attr('id')
+    document.querySelector(curryInput).addEventListener("input", event => {
+        keyboard.setInput(event.target.value);
+    });
+    // 显示虚拟键盘
+    document.querySelector(".simple-keyboard").style.display = "block";
+})
+// 添加点击事件监听器到 document
+document.addEventListener("click", function (event) {
+    // 获取点击的元素
+    const clickedElement = event.target;
+
+    // 获取虚拟键盘元素
+    const keyboardElement = document.querySelector(".simple-keyboard");
+
+    // 获取所有具有 input 类的元素
+    const inputElements = document.querySelectorAll(".input");
+
+    // 检查点击的元素是否是输入元素之外的区域
+    if (!keyboardElement.contains(clickedElement) && !isInputElement(clickedElement, inputElements)) {
+        // 隐藏虚拟键盘
+        keyboardElement.style.display = "none";
     }
-    // 顯示虛擬鍵盤
-    keyboard.open();
-});
-document.querySelector(".form-control.form-control-lg").addEventListener("input", event => {
-    keyboard.setInput(event.target.value);
 });
 
-console.log(keyboard);
-
+// 辅助函数：检查元素是否是输入元素
+function isInputElement(element, inputElements) {
+    for (const inputElement of inputElements) {
+        if (inputElement.contains(element)) {
+            return true;
+        }
+    }
+    return false;
+}
 function onChange(input) {
-    document.querySelector(".form-control.form-control-lg").value = input;
-    console.log("輸入已變更", input);
+    // document.querySelector(curryInput).value = input;
+    // console.log(input)
+    // console.log("Input changed", input);
 }
 
 function onKeyPress(button) {
-    console.log("按鈕被按下", button);
+    if (button == '{bksp}') {
+        document.querySelector(curryInput).value = document.querySelector(curryInput).value.substring(0, document.querySelector(curryInput).value.length - 1);
+    } else if (button == '{lock}' || button == '{shift}' || button == '{tab}' || button == '{enter}') {
 
+    } else if (button == '{space}') {
+        document.querySelector(curryInput).value = document.querySelector(curryInput).value + ' '
+    } else {
+        document.querySelector(curryInput).value = document.querySelector(curryInput).value + button
+    }
+    console.log("Button pressed", button);
+
+    /**
+     * If you want to handle the shift and caps lock buttons
+     */
     if (button === "{shift}" || button === "{lock}") handleShift();
 }
 
@@ -126,6 +160,11 @@ function handleShift() {
     let shiftToggle = currentLayout === "default" ? "shift" : "default";
 
     keyboard.setOptions({
-        layoutName: shiftToggle
+        layoutName: shiftToggle,
+        physicalKeyboardHighlight: true, // 可以高亮显示与物理键盘相对应的虚拟键
+        debug: true // 启用调试模式，方便调试样式和位置
     });
 }
+document.getElementById("closePage").addEventListener("click", function () {
+    window.close(); // Close the current tab or window
+});
