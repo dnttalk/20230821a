@@ -4,10 +4,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Login</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <%- include('./layout/head') -%>
         <link rel="stylesheet" href="/assets/css/login.css">
+        <link rel="stylesheet" href="/assets/plugins/css/simple-keyboard@latest_build_css_index.css">
 
 </head>
 
@@ -26,26 +27,26 @@
                                             Account</span>
                                     </div>
                                     <div class="form-outline my-5">
-                                        <input type="text" name="user" id="user"
+                                        <input type="text" name="user" id="user" maxlength="10"
                                             class="form-control form-control-lg input" placeholder="Username" />
                                     </div>
                                     <div class="form-outline my-5">
-                                        <input type="password" name="pwd" id="pwd"
+                                        <input type="password" name="pwd" id="pwd" maxlength="10"
                                             class="form-control form-control-lg input" placeholder="Password" />
                                     </div>
                                     <div class="form-outline my-5"></div>
                                     <div class="d-grid gap-2">
-                                        <button id="login" class="btn btn-primary" type="button">SUBSRIBE</button>
+                                        <button id="login" class="btn btn-primary" type="button">sign in</button>
                                     </div>
+                                    <div class="form-outline my-5"></div>
                                     <div class="d-grid gap-2">
-                                        <button id="register" class="btn btn-secondary" type="button">REGISTER</button>
+                                        <button id="register" class="btn btn-secondary" type="button">sign up</button>
                                     </div>
                                 </form>
-                                <div class="d-grid gap-2">
-                                    <button id="closePage" class="btn btn-danger" type="button">CLOSE PAGE</button>
-                                </div>
                             </div>
-
+                            <div class="d-grid gap-2">
+                                <button id="closePage" class="btn btn-danger" type="button">CLOSE PAGE</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,21 +56,21 @@
                             <div class="card-body p-4 py-5 my-5 text-black">
                                 <form id="registerForm">
                                     <div class="d-flex align-items-center mb-5 pb-5">
-                                        <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
+
                                         <span class="h1 fw-bold mb-0"
                                             style="color:rgb(9, 127, 245);width: 100%;text-align: center;">Create an
                                             Account</span>
                                     </div>
                                     <div class="form-outline my-5">
-                                        <input type="text" name="ruser" id="ruser"
+                                        <input type="text" name="ruser" id="ruser" maxlength="10"
                                             class="form-control form-control-lg input" placeholder="Username" />
                                     </div>
                                     <div class="form-outline my-5">
-                                        <input type="password" name="rpwd" id="rpwd"
+                                        <input type="password" name="rpwd" id="rpwd" maxlength="10"
                                             class="form-control form-control-lg input" placeholder="Password" />
                                     </div>
                                     <div class="form-outline my-5">
-                                        <input type="password" name="rcpwd" id="rcpwd"
+                                        <input type="password" name="rcpwd" id="rcpwd" maxlength="10"
                                             class="form-control form-control-lg input" placeholder="Confirm Password" />
                                     </div>
                                     <div class="d-grid gap-2">
@@ -85,7 +86,6 @@
         </div>
     </section>
 </body>
-
 <script src="/assets/plugins/js/jquery-3.7.0.min.js"></script>
 <script src="/assets/plugins/js/jquery.cookie.min.js"></script>
 <script src="/assets/plugins/js/bootstrap.bundle.min.js"></script>
