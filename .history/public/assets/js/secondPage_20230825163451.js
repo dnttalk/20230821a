@@ -97,15 +97,8 @@ const ok = document.getElementById('ok');
 // });
 
 let updateSscircleBtnEvent = function () {
-    for (let i = 1; i <= 24; i++) {
-        if (i <= sampleNumberInput.value) {
-            $(`#tdFirst_${i}`).find('.sscircle').addClass('active')
-            $(`#tdSecond_${i}`).find('.sscircle').addClass('active')
-        } else {
-            $(`#tdFirst_${i}`).find('.sscircle').removeClass('active')
-            $(`#tdSecond_${i}`).find('.sscircle').removeClass('active')
-        }
-
+    for (let i = 1; i <= sampleNumberInput.value; i++) {
+        $('')
     }
 }
 
