@@ -15,17 +15,17 @@ $(function () {
 
 let flashNumber = function () {
     if (processStatus == 1) {
-        $('#statusNumber1').fadeOut(500).fadeIn(500)
+        $('#step1').fadeOut(500).fadeIn(500)
     } else if (processStatus == 2) {
-        $('#statusNumber2').fadeOut(500).fadeIn(500)
+        $('#step2').fadeOut(500).fadeIn(500)
     } else if (processStatus == 3) {
-        $('#statusNumber3').fadeOut(500).fadeIn(500)
+        $('#step3').fadeOut(500).fadeIn(500)
     } else if (processStatus == 4) {
-        $('#statusNumber4').fadeOut(500).fadeIn(500)
+        $('#step4').fadeOut(500).fadeIn(500)
     } else if (processStatus == 5) {
-        $('#statusNumber5').fadeOut(500).fadeIn(500)
+        $('#step5').fadeOut(500).fadeIn(500)
     } else if (processStatus == 6) {
-        $('#statusNumber6').fadeOut(500).fadeIn(500)
+        $('#pcText').fadeOut(500).fadeIn(500)
     }
 }
 
