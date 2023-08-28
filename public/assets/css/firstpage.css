@@ -167,3 +167,16 @@ body,
     width: 170px;
     background: linear-gradient(to bottom, #a7624e, #cc0000);
 }
+
+.simple-keyboard {
+    max-width: 850px;
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    .form-control {
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+}
