@@ -1,5 +1,5 @@
 {
-  "name": "ngs_arm",
+  "name": "NGA_workstation",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "main": "./bin/www",
   "bin": {
-    "NGS_arm": "bin/www"
+    "NGA_workstation": "bin/www"
   },
   "pkg": {
     "assets": [
@@ -37,7 +37,7 @@
       "public/**/*"
     ],
     "outputPath": "dist",
-    "icon": "NGS_arm.ico"
+    "icon": "NGA_workstation.ico"
   },
   "keywords": [],
   "author": "",
