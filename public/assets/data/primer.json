@@ -23,6 +23,11 @@
             "N712 Primer",
             "N714 Primer",
             "N715 Primer"
+        ],
+        "Reagents": [
+            "PCR Mix 1",
+            "PCR Mix 2",
+            "Magnetic beads"
         ]
     },
     "leukemia": {
@@ -40,6 +45,17 @@
             "i710 Primer",
             "i711 Primer",
             "i712 Primer"
+        ],
+        "Reagents": [
+            "PCR Mix 1",
+            "PCR Mix 2",
+            "PCR Mix 3",
+            "PCR Mix 4",
+            "PCR Mix MP1",
+            "Magnetic beads",
+            "Fragmen-tation Mix",
+            "Ligation Mix",
+            "U-excision"
         ]
     },
     "TP53": {
@@ -66,6 +82,11 @@
             "N727 Primer",
             "N728 Primer",
             "N729 Primer"
+        ],
+        "Reagents": [
+            "PCR Mix 1",
+            "PCR Mix 2",
+            "Magnetic beads"
         ]
     }
 }
