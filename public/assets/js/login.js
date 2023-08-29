@@ -206,6 +206,8 @@ function handleNumbers() {
         layoutName: numbersToggle
     });
 }
-document.getElementById("closePage").addEventListener("click", function () {
-    window.close();
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("closePage").addEventListener("click", function () {
+        window.close();
+    });
 });
