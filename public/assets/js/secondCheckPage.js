@@ -7,24 +7,11 @@ $(function () {
 
 let initData = function () {
     let scount = getUrlParameter('scount')
-    // let sn = getUrlParameter('sn')
-    // let s1 = getUrlParameter('s1')
-    // let s2 = getUrlParameter('s2')
-    // let snArr = sn.split(',')
-    // let s1Arr = s1.split(',')
-    // let s2Arr = s2.split(',')
     $('#sampleNumberInput').val(scount)
-    // for (let i = 1; i <= scount; i++) {
-    //     $(`#tdFirst_${i}`).text(snArr[i - 1])
-    //     $(`#tdSecond_${i}`).text(s1Arr[i - 1] + ',' + s2Arr[i - 1])
-    // }
 }
 
 // 下一頁允許事件
 let nextPageEvent = function () {
-    // $('.nextPage').css('cursor', 'pointer')
-    // $('.nextPage').css('background-color', 'rgb(0, 0, 204)')
-    // $('.nextPage').css('color', 'white')
     $('.nextPage').click(function () {
         let check = 1
         for (let i = 1; i <= 24; i++) {
@@ -170,8 +157,6 @@ let tdEvent = function () {
         $(`#tdFirst_${$('#doneChoose2').attr('dataNumber')}`).removeAttr('s2')
         $(`#tdFirst_${$('#doneChoose2').attr('dataNumber')}`).text('')
         $(`#tdSecond_${$('#doneChoose2').attr('dataNumber')}`).text('')
-        // $(`#tdFirst_${$('#cancleChoose2').attr('dataNumber')}`).removeClass('active')
-        // $(`#tdSecond_${$('#cancleChoose2').attr('dataNumber')}`).removeClass('active')
         checkEvent()
     })
     $('#doneChoose2').click(function () {
@@ -181,11 +166,132 @@ let tdEvent = function () {
             $(`#tdFirst_${$('#doneChoose2').attr('dataNumber')}`).attr('s2', $('.selectionBtn2.active').text())
             $(`#tdFirst_${$('#doneChoose2').attr('dataNumber')}`).text($('#sName').val())
             $(`#tdSecond_${$('#doneChoose2').attr('dataNumber')}`).text($('.selectionBtn1.active').text() + ',' + $('.selectionBtn2.active').text())
-            // $(`#tdFirst_${$('#doneChoose2').attr('dataNumber')}`).addClass('active')
-            // $(`#tdSecond_${$('#doneChoose2').attr('dataNumber')}`).addClass('active')
+
             checkEvent()
         } else {
             alert('Please Check Sample Number and Selection !')
         }
     })
+}
+let curryInput = '#sName'
+let Keyboard = window.SimpleKeyboard.default;
+
+let keyboard = new Keyboard({
+    onChange: input => onChange(input),
+    onKeyPress: button => onKeyPress(button),
+    mergeDisplay: true,
+    layoutName: "default",
+    layout: {
+        default: [
+            "q w e r t y u i o p",
+            "a s d f g h j k l",
+            "{shift} z x c v b n m {backspace}",
+            "{numbers} {space} {ent}"
+        ],
+        shift: [
+            "Q W E R T Y U I O P",
+            "A S D F G H J K L",
+            "{shift} Z X C V B N M {backspace}",
+            "{numbers} {space} {ent}"
+        ],
+        numbers: ["1 2 3", "4 5 6", "7 8 9", "{abc} 0 {backspace}"]
+    },
+    display: {
+        "{numbers}": "123",
+        "{ent}": "return",
+        "{escape}": "esc ⎋",
+        "{tab}": "tab ⇥",
+        "{backspace}": "⌫",
+        "{capslock}": "caps lock ⇪",
+        "{shift}": "⇧",
+        "{controlleft}": "ctrl ⌃",
+        "{controlright}": "ctrl ⌃",
+        "{altleft}": "alt ⌥",
+        "{altright}": "alt ⌥",
+        "{metaleft}": "cmd ⌘",
+        "{metaright}": "cmd ⌘",
+        "{abc}": "ABC"
+    }
+});
+
+function handleNumbers() {
+    let currentLayout = keyboard.options.layoutName;
+    let numbersToggle = currentLayout !== "numbers" ? "numbers" : "default";
+
+    keyboard.setOptions({
+        layoutName: numbersToggle
+    });
+}
+$(".input").click(function () {
+    curryInput = '#' + $(this).attr('id')
+    document.querySelector(curryInput).addEventListener("input", event => {
+        keyboard.setInput(event.target.value);
+    });
+    // 显示虚拟键盘
+    document.querySelector(".simple-keyboard").style.display = "block";
+})
+// 添加点击事件监听器到 document
+document.addEventListener("click", function (event) {
+    // 获取点击的元素
+    const clickedElement = event.target;
+
+    // 获取虚拟键盘元素
+    const keyboardElement = document.querySelector(".simple-keyboard");
+
+    // 获取所有具有 input 类的元素
+    const inputElements = document.querySelectorAll(".input");
+
+    // 检查点击的元素是否是输入元素之外的区域
+    if (!keyboardElement.contains(clickedElement) && !isInputElement(clickedElement, inputElements)) {
+        // 隐藏虚拟键盘
+        keyboardElement.style.display = "none";
+    }
+});
+
+// 辅助函数：检查元素是否是输入元素
+function isInputElement(element, inputElements) {
+    for (const inputElement of inputElements) {
+        if (inputElement.contains(element)) {
+            return true;
+        }
+    }
+    return false;
+}
+function onChange(input) {
+
+}
+
+function onKeyPress(button) {
+    if (button == '{backspace}') {
+        document.querySelector(curryInput).value = document.querySelector(curryInput).value.substring(0, document.querySelector(curryInput).value.length - 1);
+    } else if (button == '{backspace}' || button == '{shift}' || button == '{ent}' || button == '{enter}' || button == '{numbers}' || button == '{abc}') {
+
+    } else if (button == '{space}') {
+        document.querySelector(curryInput).value = document.querySelector(curryInput).value + ' '
+    } else {
+        document.querySelector(curryInput).value = document.querySelector(curryInput).value + button
+    }
+    console.log("Button pressed", button);
+
+    if (button === "{numbers}" || button === "{abc}") handleNumbers();
+    if (button === "{shift}" || button === "{lock}") handleShift();
+}
+
+function handleShift() {
+    let currentLayout = keyboard.options.layoutName;
+    let shiftToggle = currentLayout === "default" ? "shift" : "default";
+
+    keyboard.setOptions({
+        layoutName: shiftToggle,
+        physicalKeyboardHighlight: true, // 可以高亮显示与物理键盘相对应的虚拟键
+        debug: true // 启用调试模式，方便调试样式和位置
+    });
+}
+function handleNumbers() {
+    let currentLayout = keyboard.options.layoutName;
+    let numbersToggle = currentLayout !== "numbers" ? "numbers" : "default";
+
+    keyboard.setOptions({
+        layoutName: numbersToggle
+    });
 }

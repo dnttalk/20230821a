@@ -6,7 +6,7 @@
         MPN
     </title>
     <%- include('./layout/head') -%>
-    <link rel='stylesheet' href='/assets/css/second.css' />
+        <link rel='stylesheet' href='/assets/css/second.css' />
 
 </head>
 
@@ -27,28 +27,31 @@
                 </div>
                 <div class="row">
                     <script>
-                        let arr1 = [];
-                        let arr2 = [];
+                        let primer1 = [];
+                        let primer2 = [];
                     </script>
                     <% if(id=='mpn' ){ %>
-                    <script>
-                        arr1 = ['S502', 'S503', 'S505', 'S506', 'S507', 'S508', 'S510', 'S511']
-                        arr2 = ['N701', 'N702', 'N703', 'N704', 'N705', 'N706', 'N707', 'N710', 'N711', 'N712', 'N714', 'N715']
-                    </script>
-                    <h1>Samples: <input type="number" pattern="\d*" max="8" min="1" value="1" id="sampleNumberInput" oninput="if(value<=0)value=1;if(value>8)value=8;" inputmode="numeric"></h1>
-                    <% }else if(id=='leukemia' ){ %>
-                    <script>
-                        arr1 = ['S505', 'S506', 'S507', 'S508']
-                        arr2 = ['i701', 'i707', 'i708', 'i709', 'i710', 'i711', 'i712']
-                    </script>
-                    <h1>Samples: <input type="number" max="22" min="1" value="1" id="sampleNumberInput" oninput="if(value<=0)value=1;if(value>22)value=22;"></h1>
-                    <% }else{ %>
-                    <script>
-                        arr1 = ['S502', 'S503', 'S505', 'S506', 'S507', 'S508', 'S510', 'S511']
-                        arr2 = ['N716', 'N718', 'N719', 'N720', 'N721', 'N722', 'N723', 'N724', 'N726', 'N727', 'N728', 'N729']
-                    </script>
-                    <h1>Samples: <input type="number" max="24" min="1" value="1" id="sampleNumberInput" oninput="if(value<=0)value=1;if(value>24)value=24;"></h1>
-                    <% } %>
+                        <script>
+                            primer1 = ['S502', 'S503', 'S505', 'S506', 'S507', 'S508', 'S510', 'S511']
+                            primer2 = ['N701', 'N702', 'N703', 'N704', 'N705', 'N706', 'N707', 'N710', 'N711', 'N712', 'N714', 'N715']
+                        </script>
+                        <h1>Samples: <input type="number" pattern="\d*" max="8" min="1" value="1" id="sampleNumberInput"
+                                oninput="if(value<=0)value=1;if(value>8)value=8;" inputmode="numeric"></h1>
+                        <% }else if(id=='leukemia' ){ %>
+                            <script>
+                                primer1 = ['S505', 'S506', 'S507', 'S508']
+                                primer2 = ['i701', 'i707', 'i708', 'i709', 'i710', 'i711', 'i712']
+                            </script>
+                            <h1>Samples: <input type="number" max="22" min="1" value="1" id="sampleNumberInput"
+                                    oninput="if(value<=0)value=1;if(value>22)value=22;"></h1>
+                            <% }else{ %>
+                                <script>
+                                    primer1 = ['S502', 'S503', 'S505', 'S506', 'S507', 'S508', 'S510', 'S511']
+                                    primer2 = ['N716', 'N718', 'N719', 'N720', 'N721', 'N722', 'N723', 'N724', 'N726', 'N727', 'N728', 'N729']
+                                </script>
+                                <h1>Samples: <input type="number" max="24" min="1" value="1" id="sampleNumberInput"
+                                        oninput="if(value<=0)value=1;if(value>24)value=24;"></h1>
+                                <% } %>
                 </div>
             </div>
             <div class="col-10">
@@ -61,16 +64,19 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <button type="button" id="pm1" class="countPopBtn scircle btn-primary border-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">PCR Mix 1</button>
+                                        <button type="button" id="pm1" class="countPopBtn scircle btn-primary border-5"
+                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">PCR Mix 1</button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <button type="button" id="mb" class="countPopBtn scircle btn-primary border-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Magnetic
+                                        <button type="button" id="mb" class="countPopBtn scircle btn-primary border-5"
+                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">Magnetic
                                             beads</button>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <button type="button" id="pm2" class="countPopBtn scircle btn-primary border-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop">PCR Mix 2</button>
+                                        <button type="button" id="pm2" class="countPopBtn scircle btn-primary border-5"
+                                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">PCR Mix 2</button>
                                     </div>
                                     <div class="col-sm-6">
                                         <button type="button" class="scircle disabled btn-primary border-5"></button>
@@ -118,22 +124,22 @@
                             <td class="tdRow">1</td>
                             <td class="tdRow">2</td>
                             <td class="tdRow">3</td>
-                            <td class="tdRow">4</td>
-                            <td class="tdRow">5</td>
-                            <td class="tdRow">6</td>
+                            <td class="tdRow">1</td>
+                            <td class="tdRow">2</td>
+                            <td class="tdRow">3</td>
                         </tr>
                         <tr>
                             <td class="tdCol">A</td>
                             <td id="tdFirst_1" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="A" colName="1"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="A" colName="1"></button>
                             </td>
                             <td id="tdFirst_9" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="A" colName="2"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="A" colName="2"></button>
                             </td>
                             <td id="tdFirst_17" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="A" colName="3"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="A" colName="3"></button>
                             </td>
                             <td id="tdSecond_1" class="tdWidth">
@@ -149,15 +155,15 @@
                         <tr>
                             <td class="tdCol">B</td>
                             <td id="tdFirst_2" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="B" colName="1"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="B" colName="1"></button>
                             </td>
                             <td id="tdFirst_10" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="B" colName="2"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="B" colName="2"></button>
                             </td>
                             <td id="tdFirst_18" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="B" colName="3"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="B" colName="3"></button>
                             </td>
                             <td id="tdSecond_2" class="tdWidth">
@@ -173,15 +179,15 @@
                         <tr>
                             <td class="tdCol">C</td>
                             <td id="tdFirst_3" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="C" colName="1"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="C" colName="1"></button>
                             </td>
                             <td id="tdFirst_11" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="C" colName="2"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="C" colName="2"></button>
                             </td>
                             <td id="tdFirst_19" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="C" colName="3"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="C" colName="3"></button>
                             </td>
                             <td id="tdSecond_3" class="tdWidth">
@@ -197,15 +203,14 @@
                         <tr>
                             <td class="tdCol">D</td>
                             <td id="tdFirst_4" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="D" colName="1"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="D" colName="1"></button>
                             </td>
                             <td id="tdFirst_12" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="D" colName="2"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="D" colName="2"></button>
                             </td>
                             <td id="tdFirst_20" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="D" colName="3"></button> -->
                                 <button type="button" class="sscircle btn-primary" rowName="D" colName="3"></button>
                             </td>
                             <td id="tdSecond_4" class="tdWidth">
@@ -221,15 +226,12 @@
                         <tr>
                             <td class="tdCol">E</td>
                             <td id="tdFirst_5" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="E" colName="1"></button> -->
                                 <button type="button" class="sscircle btn-primary" rowName="E" colName="1"></button>
                             </td>
                             <td id="tdFirst_13" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="E" colName="2"></button> -->
                                 <button type="button" class="sscircle btn-primary" rowName="E" colName="2"></button>
                             </td>
                             <td id="tdFirst_21" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="E" colName="3"></button> -->
                                 <button type="button" class="sscircle btn-primary" rowName="E" colName="3"></button>
                             </td>
                             <td id="tdSecond_5" class="tdWidth">
@@ -245,15 +247,15 @@
                         <tr>
                             <td class="tdCol">F</td>
                             <td id="tdFirst_6" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="F" colName="1"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="F" colName="1"></button>
                             </td>
                             <td id="tdFirst_14" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="F" colName="2"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="F" colName="2"></button>
                             </td>
                             <td id="tdFirst_22" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="F" colName="3"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="F" colName="3"></button>
                             </td>
                             <td id="tdSecond_6" class="tdWidth">
@@ -269,15 +271,15 @@
                         <tr>
                             <td class="tdCol">G</td>
                             <td id="tdFirst_7" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="G" colName="1"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="G" colName="1"></button>
                             </td>
                             <td id="tdFirst_15" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="G" colName="2"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="G" colName="2"></button>
                             </td>
                             <td id="tdFirst_23" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="G" colName="3"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="G" colName="3"></button>
                             </td>
                             <td id="tdSecond_7" class="tdWidth">
@@ -293,15 +295,15 @@
                         <tr>
                             <td class="tdCol">H</td>
                             <td id="tdFirst_8" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="H" colName="1"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="H" colName="1"></button>
                             </td>
                             <td id="tdFirst_16" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="H" colName="2"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="H" colName="2"></button>
                             </td>
                             <td id="tdFirst_24" class="tdWidth">
-                                <!-- <button type="button" class="sscircle btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" rowName="H" colName="3"></button> -->
+
                                 <button type="button" class="sscircle btn-primary" rowName="H" colName="3"></button>
                             </td>
                             <td id="tdSecond_8" class="tdWidth">
@@ -335,7 +337,8 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade bg-transparent" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+    <div class="modal fade bg-transparent" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
         <div class="modal-dialog countTotalContainerRight">
             <div class="modal-content">
                 <div class="modal-body text-center">
@@ -366,10 +369,12 @@
                         </div>
                         <div class="row">
                             <div class="col-6 text-start">
-                                <button id="cancleChoose" type="button" class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">X</button>
+                                <button id="cancleChoose" type="button"
+                                    class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">X</button>
                             </div>
                             <div class="col-6 text-end">
-                                <button id="doneChoose" type="button" class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">&#10003;</button>
+                                <button id="doneChoose" type="button" class="chooesBtn changePage btn-primary border-5"
+                                    data-bs-dismiss="modal">&#10003;</button>
                             </div>
                         </div>
                     </div>
@@ -377,46 +382,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="modal fade bg-transparent" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop2Label" aria-hidden="false">
-        <div class="modal-dialog countTotalContainerLeft">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="showSampleIndex">
-                                <p style="margin-top: 13px;">Sample and Index </p>
-                                <p id="showSampleIndexCell" style="margin-top: -12\px;"></p>
-                            </div>
-                        </div>
-                        <div class="row text-start sampleIndexSelectionContainer">
-                            <div class="col-5">
-                                <p>Sample Name:</p>
-                            </div>
-                            <div class="col-7">
-                                <input id="sName" type="text" maxlength="10" />
-                            </div>
-                            <div class="col-12">
-                                Index:
-                            </div>
-                            <div class="col-12">
-                                <div class="row siBtnContainer">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 text-start">
-                                <button id="cancleChoose2" type="button" class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">X</button>
-                            </div>
-                            <div class="col-6 text-end">
-                                <button id="doneChoose2" type="button" class="chooesBtn changePage btn-primary border-5" data-bs-dismiss="modal">&#10003;</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div id="keyboardContainer" class="keyboardContainer">
         <div id="keyboard">
             <div class="key">1</div>
@@ -435,7 +400,7 @@
         </div>
     </div>
     <%- include('./layout/js') -%>
-    <script src="/assets/js/secondPage.js"></script>
+        <script src="/assets/js/secondPage.js"></script>
 </body>
 
 </html>

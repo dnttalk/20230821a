@@ -18,7 +18,8 @@
     "morgan": "^1.10.0",
     "node-key-sender": "^1.0.11",
     "puppeteer": "^21.1.0",
-    "rcedit": "^3.1.0"
+    "rcedit": "^3.1.0",
+    "simple-keyboard": "latest"
   },
   "devDependencies": {
     "electron-builder": "^24.6.3",

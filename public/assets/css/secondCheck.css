@@ -4,3 +4,16 @@ td {
     height: 53px;
     width: 53px;
 }
+
+.simple-keyboard {
+    max-width: 850px;
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    .form-control {
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+}

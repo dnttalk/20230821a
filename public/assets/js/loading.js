@@ -50,7 +50,7 @@ let ChangeStatus = function () {
         } else {
             processStatus++
             clearInterval(cStatus)
-            $('#popMessage').text('頁面正在轉跳...')
+            $('#popMessage').text('page jump...')
             setTimeout(function () {
                 window.location.href = "/";
             }, 1000)
