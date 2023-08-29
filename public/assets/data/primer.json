@@ -1,6 +1,6 @@
 {
     "mpn": {
-        "arr1": [
+        "primer1": [
             "S502 Primer",
             "S503 Primer",
             "S505 Primer",
@@ -10,7 +10,7 @@
             "S510 Primer",
             "S511 Primer"
         ],
-        "arr2": [
+        "primer2": [
             "N701 Primer",
             "N702 Primer",
             "N703 Primer",
@@ -26,13 +26,13 @@
         ]
     },
     "leukemia": {
-        "arr1": [
+        "primer1": [
             "S505 Primer",
             "S506 Primer",
             "S507 Primer",
             "S508 Primer"
         ],
-        "arr2": [
+        "primer2": [
             "i701 Primer",
             "i707 Primer",
             "i708 Primer",
@@ -43,7 +43,7 @@
         ]
     },
     "TP53": {
-        "arr1": [
+        "primer1": [
             "S502 Primer",
             "S503 Primer",
             "S505 Primer",
@@ -53,7 +53,7 @@
             "S510 Primer",
             "S511 Primer"
         ],
-        "arr2": [
+        "primer2": [
             "N716 Primer",
             "N718 Primer",
             "N719 Primer",
