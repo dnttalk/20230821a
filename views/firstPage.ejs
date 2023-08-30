@@ -4,9 +4,9 @@
 <head>
     <title>第一頁</title>
     <%- include('./layout/head') -%>
-        <link rel="stylesheet" href="/assets/css/firstpage.css" />
+    <link rel="stylesheet" href="/assets/css/firstpage.css" />
 
-        <link rel="stylesheet" href="/assets/plugins/css/simple-keyboard@latest_build_css_index.css">
+    <link rel="stylesheet" href="/assets/plugins/css/simple-keyboard@latest_build_css_index.css">
 </head>
 
 <body>
@@ -14,8 +14,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="row leftContainer1">
-                    <button id="check" type="button" class="fbtn btn btn-primary border-5" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal2">NGS Library Prep</button>
+                    <button id="check" type="button" class="fbtn btn btn-primary border-5" data-bs-toggle="modal" data-bs-target="#exampleModal2">NGS Library Prep</button>
                 </div>
             </div>
             <div class="col-6">
@@ -34,12 +33,10 @@
 
     <div class="siderbar">
         <div class="row">
-            <a href="/login"><button id="btn-login" type="button"
-                    class="fbtn btn btn-primary border-5">Login</button></a>
+            <a href="/login"><button id="btn-login" type="button" class="fbtn btn btn-primary border-5">Login</button></a>
         </div>
         <div class="row">
-            <button type="button" id="existBtn" class="fbtn btn btn-danger border-5" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">Exit</button>
+            <button type="button" id="existBtn" class="fbtn btn btn-danger border-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Exit</button>
         </div>
     </div>
     <!-- Modal -->
@@ -53,30 +50,14 @@
                         </div>
                         <div class="row justify-content-md-center inputContainer">
                             <div class="col-5 mx-1">
-                                <input id="sName" type="text" maxlength="10" id="Name"
-                                    class="form-control form-control-lg input" placeholder="Samplename" maxlength="20">
+                                <input id="sName" type="text" maxlength="10" id="Name" class="form-control form-control-lg input" placeholder="Samplename" maxlength="20">
                             </div>
                             <div class="col-5 mx-1">
-                                <input type="number" id="lotnumber" class="form-control form-control-lg input"
-                                    placeholder="Lot Number" maxlength="20">
+                                <input id="lotnumber" type="number" class="form-control form-control-lg input" placeholder="Lot Number" maxlength="20">
                             </div>
                             <div class="simple-keyboard"></div>
                         </div>
-                        <div class="row justify-content-md-center chooseContainer">
-                            <div class="col-3 mx-3">
-                                <button id="leukemia" class="fsbtn btn btn-primary border-5"
-                                    data-bs-dismiss="modal">Leukemia</button>
-                            </div>
-                            <div class="col-3 mx-3">
-                                <button id="mpn" class="fsbtn btn btn-primary border-5"
-                                    data-bs-dismiss="modal">MPN</button>
-                            </div>
-                            <div class="col-3 mx-3">
-                                <button id="tp53" class="fsbtn btn btn-primary border-5"
-                                    data-bs-dismiss="modal">TP53</button>
-                            </div>
-
-                        </div>
+                        <div class="row justify-content-md-center chooseContainer"></div>
                         <div class="simple-keyboard"></div>
                     </div>
                 </div>
@@ -98,10 +79,10 @@
             </div>
         </div>
         <%- include('./layout/js') -%>
-            <script src="/assets/plugins/js/simple-keyboard@latest_build_index.js"></script>
-            <script src="/assets/js/firstpage.js"></script>
-            <script src="/assets/js/PCR_open.js"></script>
-            <script src="/assets/js/PCR_close.js"></script>
+        <script src="/assets/plugins/js/simple-keyboard@latest_build_index.js"></script>
+        <script src="/assets/js/firstpage.js"></script>
+        <script src="/assets/js/PCR_open.js"></script>
+        <script src="/assets/js/PCR_close.js"></script>
 
 </body>
 

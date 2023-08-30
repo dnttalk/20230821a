@@ -3,10 +3,32 @@ const statusArr = ['PCR open', 'PCR opening', 'PCR close', 'PCR closing'];
 const $pcrBtn = $('#pcrBtn'); // Cache the button element
 
 $(function () {
+    resetCookie();
     btnAnimation();
     // 選擇事件
+    loadAllSampleBtn();
     btnChooseEvent();
 });
+
+let loadAllSampleBtn = function () {
+    fetch('/assets/data/sample.json')
+        .then((response) => response.json())
+        .then((json) => {
+            Object.keys(json).forEach(function (k) {
+                $('.chooseContainer').append(`
+                <div class="col-3 mx-3">
+                    <button id="${k.toLocaleLowerCase()}" class="fsbtn btn btn-primary border-5" data-bs-dismiss="modal">${k.toUpperCase()}</button>
+                </div>
+                `)
+            });
+        });
+}
+
+let resetCookie = function () {
+    $.removeCookie("sname");
+    $.removeCookie("lotnumber");
+    $.removeCookie("cmodelname");
+}
 
 async function statusEvent() {
     status = (status + 1) % 4;
@@ -65,13 +87,13 @@ let keyboard = new Keyboard({
             "q w e r t y u i o p",
             "a s d f g h j k l",
             "{shift} z x c v b n m {backspace}",
-            "{numbers} {space}"
+            "{numbers} {space} {ent}"
         ],
         shift: [
             "Q W E R T Y U I O P",
             "A S D F G H J K L",
             "{shift} Z X C V B N M {backspace}",
-            "{numbers} {space}"
+            "{numbers} {space} {ent}"
         ],
         numbers: ["1 2 3", "4 5 6", "7 8 9", "{abc} 0 {backspace}"]
 
@@ -81,13 +103,13 @@ let keyboard = new Keyboard({
             "q w e r t y u i o p",
             "a s d f g h j k l",
             "{shift} z x c v b n m {backspace}",
-            "{numbers} {space}"
+            "{numbers} {space} {ent}"
         ],
         shift: [
             "Q W E R T Y U I O P",
             "A S D F G H J K L",
             "{shift} Z X C V B N M {backspace}",
-            "{numbers} {space}"
+            "{numbers} {space} {ent}"
         ],
         numbers: ["1 2 3", "4 5 6", "7 8 9", "{abc} 0 {backspace}"]
 
@@ -179,13 +201,14 @@ function handleNumbers() {
     });
 }
 function btnChooseEvent() {
-    $('#leukemia').click(function () {
-        window.location.href = "/second?id=" + $(this).attr('id');
-    })
-    $('#tp53').click(function () {
-        window.location.href = "/second?id=" + $(this).attr('id');
-    })
-    $('#mpn').click(function () {
-        window.location.href = "/second?id=" + $(this).attr('id');
+    $(document).on('click', '.fsbtn', function (e) {
+        if ($('#sName').val().length == 0 || $('#lotnumber').val() == 0) {
+            alert('please input Samplename and LotNumber')
+        } else {
+            $.cookie("sname", $('#sName').val(), { path: '/' });
+            $.cookie("lotnumber", $('#lotnumber').val(), { path: '/' });
+            $.cookie("cmodelname", $(this).attr('id'), { path: '/' });
+            window.location.href = "/second?id=" + $(this).attr('id');
+        }
     })
 }

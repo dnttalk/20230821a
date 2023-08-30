@@ -28,7 +28,9 @@
             "PCR Mix 1",
             "PCR Mix 2",
             "Magnetic beads"
-        ]
+        ],
+        "SampleLimit": 8,
+        "name": "NPM"
     },
     "leukemia": {
         "primer1": [
@@ -56,7 +58,9 @@
             "Fragmen-tation Mix",
             "Ligation Mix",
             "U-excision"
-        ]
+        ],
+        "SampleLimit": 22,
+        "name": "Leukemia"
     },
     "TP53": {
         "primer1": [
@@ -87,6 +91,8 @@
             "PCR Mix 1",
             "PCR Mix 2",
             "Magnetic beads"
-        ]
+        ],
+        "SampleLimit": 24,
+        "name": "TP53"
     }
 }
